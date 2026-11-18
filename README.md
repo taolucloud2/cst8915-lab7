@@ -25,8 +25,8 @@ All messages in the queue (such as unprocessed orders) are lost. As I demonstrat
 
 ### 4. Possible Solutions
 
-- Use a managed service such as **Azure Service Bus**.
+ Use a managed service such as **Azure Service Bus**.
 
 ### 5. Does Azure Service Bus Solve This?
 
-Yes. Azure Service Bus is managed by Azure, so messages are stored safely and are not lost when Pods restart.
+Azure Service Bus stores the data for us, so we do not need to worry about data loss. It is managed by Azure.
