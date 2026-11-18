@@ -13,7 +13,7 @@
 
 ### 1. Stateless or Stateful?
 
-RabbitMQ is **stateful**. It stores data such as queues and messages.
+RabbitMQ is a stateful application because it stores data, such as queues and messages.
 
 ### 2. Running Without Persistent Storage
 
@@ -21,14 +21,12 @@ In this lab, RabbitMQ has no persistent storage. Its data is saved only inside t
 
 ### 3. When the Pod Is Deleted or Restarted
 
-Kubernetes creates a new RabbitMQ Pod automatically, but it starts empty. All messages in the queue (such as unprocessed orders) are lost.
+All messages in the queue (such as unprocessed orders) are lost. As I demonstrated in the video, when I deleted the RabbitMQ Pod, it was recreated, but the messages in the queue were lost.
 
 ### 4. Possible Solutions
 
-- Use a **PersistentVolumeClaim (PVC)** to save data on an Azure Disk.
-- Use a **StatefulSet** instead of a Deployment.
 - Use a managed service such as **Azure Service Bus**.
 
 ### 5. Does Azure Service Bus Solve This?
 
-Yes. Azure Service Bus is managed by Azure, so messages are stored safely and are not lost when Pods restart. However, the order service code must be changed to use Service Bus, and it costs money.
+Yes. Azure Service Bus is managed by Azure, so messages are stored safely and are not lost when Pods restart.
